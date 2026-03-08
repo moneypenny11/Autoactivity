@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2026 Paper</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:#2ecc71;
+    font-family:'Anonymous Pro', monospace;
+    overflow:hidden;
+}
+
+/* animated background */
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+/* vertical lines */
+.line{
+    position:absolute;
+    width:2px;
+    height:120px;
+    background:#0b6b3a;
+    animation:rise 6s linear infinite;
+}
+
+@keyframes rise{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    50%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-200px);
+        opacity:0;
+    }
+}
+
+/* 2026 text */
+.year{
+    position:absolute;
+    width:100%;
+    top:20%;
+    text-align:center;
+    font-size:180px;
+    color:#0a5f33;
+    letter-spacing:40px;
+    font-weight:bold;
+    opacity:0.15;
+}
+
+/* paper */
+.paper{
+    position:relative;
+    z-index:2;
+    width:70%;
+    height:70vh;
+    background:white;
+    margin:10vh auto;
+    padding:40px;
+    box-shadow:0 0 40px rgba(0,0,0,0.2);
+    overflow:auto;
+}
+
+/* editable text area */
+.paper[contenteditable]{
+    outline:none;
+    font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background" id="bg"></div>
+
+<div class="year">2026</div>
+
+<div class="paper" contenteditable="true">
+<span style="color: #00FFFF">Formal grievance what i ask<br>20M</span><br>based on swiss visa entities.gov have no problem with the amounts because : <u>printing money</u> , (the created part in blue) meaning life : don't look to things , don't interrupt by <u>amounts big</u> and keep myself on the same statue as always</div>
+
+<script>
+
+/* create animated lines */
+
+const bg = document.getElementById("bg");
+
+for(let i=0;i<80;i++){
+
+    const line = document.createElement("div");
+    line.className="line";
+
+    line.style.left=Math.random()*100+"%";
+    line.style.animationDelay=Math.random()*6+"s";
+    line.style.height=(80+Math.random()*200)+"px";
+
+    bg.appendChild(line);
+}
+
+</script>
+
+</body>
+</html>
